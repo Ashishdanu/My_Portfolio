@@ -1,0 +1,175 @@
+/* Reset and global styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Make the header sticky */
+  header {
+    background-color: #a8a8a8;
+    position: -webkit-sticky; /* Safari support */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 0 20px;
+    box-shadow: 0px 4px 10px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for list items */
+  li {
+    list-style: none;
+  }
+  
+  /* Styling for anchor tags */
+  a {
+    color: #f0f0f0; /* Light gray for better contrast */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #1a73e8; /* Professional blue on hover */
+  }
+  
+  /* Navbar container styling */
+  .navbar {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+  }
+  
+  /* Brand styling */
+  .brand {
+    font-size: 2rem;
+    color: #f0f0f0;
+    font-weight: bold;
+  }
+  
+  /* Navigation menu styling (Desktop) */
+  .nav_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .nav_item {
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+  }
+  .nav_item:hover {
+    background-color: rgba(33, 156, 33, 0.1);
+    transform: scale(1.1); 
+    transition: all 0.2s ease-in-out;
+    color: #21a21a; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  }
+
+  
+  /* Hamburger icon styling (hidden by default on desktop) */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #f0f0f0;
+    margin: 5px auto;
+    transition: 0.3s;
+  }
+  
+  /* Mobile responsive styles */
+  @media (max-width: 768px) {
+    /* Show hamburger icon on mobile */
+    .hamburger {
+      display: block;
+    }
+  
+    /* Hide menu by default on mobile */
+    .nav_menu {
+      position: fixed;
+      top: 70px;
+      left: -100%; /* Off-screen */
+      width: 100%;
+      flex-direction: column;
+      background-color: #e0e0e0; /* Darker background for mobile menu */
+      padding: 20px;
+      text-align: center;
+      transition: left 0.3s;
+      z-index: 1000;
+      justify-content: space-evenly;
+    }
+  
+    /* Each menu item on mobile */
+    .nav_item {
+      margin: 7px auto;
+    }
+  
+    /* Show menu when active */
+    .nav_menu.active {
+      left: 0; /* Slide into view */
+    }
+  
+    /* Hamburger active state */
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0; /* Hide the middle bar */
+    }
+  
+    .hamburger.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg); /* Rotate top bar */
+    }
+  
+    .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg); /* Rotate bottom bar */
+    }
+  }
+  
+
+
+
+  /* logo css  */
+
+  /* Typing effect for "Ashish Danu" */
+  /* .typing-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f0f0f0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    width: 0; 
+    animation: typing 2.5s steps(12) 1s infinite, blink 0.7s step-end infinite;
+    padding-right: 10px;
+    font-family: 'Courier', monospace;  
+     Monospace for a typing look 
+  }
+  
+   Typing keyframes: Total 2.5s duration 
+   @keyframes typing {
+    0% {
+      width: 0;
+    }
+    50% { 
+     width: 11ch;11 characters wide for "Ashish Danu" 
+     }
+    100% {
+      width: 0;
+    }
+  } 
+  
+   Blinking cursor animation 
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+   */

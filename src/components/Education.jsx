@@ -1,15 +1,43 @@
-import { Box, Text, Heading, Image, Flex ,keyframes} from "@chakra-ui/react";
+import { Box, Text, Heading, Image, Flex } from "@chakra-ui/react";
 import { FaCalendarAlt, FaGraduationCap } from "react-icons/fa"; // Importing an education icon
 import { KumaonLogo, Masailogo } from "../Logos";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
-
-const popUp = keyframes`
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-`;
 const Education = () => {
+  const controls = useAnimation();
+  const { ref, inView } = useInView({ threshold: 0.2 }); // Adjust threshold as needed
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
+
+  const popUpVariant = {
+    hidden: { scale: 0.5, opacity: 0 },
+    visible: { scale: 1, opacity: 1, transition: { duration: 1.6, ease: "easeOut" } },
+  };
+
+
   return (
-    <Box boxShadow="md" bg="white" p={4} rounded="lg" w="80%" margin="auto" marginTop={10}  animation={`${popUp} 1.6s ease-out`}>
+    <Box
+      as={motion.div}
+      ref={ref}
+      variants={popUpVariant}
+      initial="hidden"
+      animate={controls}
+      boxShadow="md"
+      bg="white"
+      p={4}
+      rounded="lg"
+      w="80%"
+      margin="auto"
+      marginTop={10}
+    >
       <Flex align="center" mb={4}>
         <FaGraduationCap size="32px" color="teal" style={{ marginRight: "10px" }} />
         <Heading as="h2" size="lg">
@@ -28,9 +56,9 @@ const Education = () => {
               Masai School, Bangalore
             </Text>
             <Flex alignItems="center" fontSize="md" color="gray.600">
-          <FaCalendarAlt />
-          <Text ml={2}>March 2024 - Present</Text>
-        </Flex>
+              <FaCalendarAlt />
+              <Text ml={2}>March 2024 - Present</Text>
+            </Flex>
           </Box>
         </Flex>
       </Box>
@@ -44,9 +72,9 @@ const Education = () => {
               Graduated from Kumaon University
             </Text>
             <Flex alignItems="center" fontSize="md" color="gray.600">
-          <FaCalendarAlt />
-          <Text ml={2}>July 2020 - Aug 2023</Text>
-        </Flex>
+              <FaCalendarAlt />
+              <Text ml={2}>July 2020 - Aug 2023</Text>
+            </Flex>
           </Box>
         </Flex>
       </Box>

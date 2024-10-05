@@ -23,6 +23,7 @@ const Footer = () => {
       alignItems="center"
       textAlign="center"
       gap={4} // Adjusted gap for better spacing
+      mt={'10px'}
     >
       <Box
         as="hr"

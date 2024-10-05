@@ -1,15 +1,34 @@
-import { Box, Flex, Heading, Icon, Text, SimpleGrid, keyframes } from '@chakra-ui/react';
+import { Box, Flex, Heading, Icon, Text, SimpleGrid } from '@chakra-ui/react';
 import { FaReact, FaGithub, FaCss3Alt, FaHtml5, FaDatabase } from 'react-icons/fa';
 import { SiTailwindcss, SiFirebase, SiChakraui, SiJavascript } from 'react-icons/si';
-
-const popUp = keyframes`
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-`;
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 const TechStack = () => {
+  const controls = useAnimation();
+  const { ref, inView } = useInView({ threshold: 0.1 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    } else {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
+  const popUpVariant = {
+    hidden: { scale: 0.5, opacity: 0 },
+    visible: { scale: 1, opacity: 1, transition: { duration: 1.4, ease: 'easeOut' } },
+  };
+
   return (
     <Box
+      as={motion.div}
+      ref={ref}
+      variants={popUpVariant}
+      initial="hidden"
+      animate={controls}
       boxShadow="md"
       bg="white"
       p={4}
@@ -17,7 +36,6 @@ const TechStack = () => {
       w="80%"
       margin="auto"
       marginTop={10}
-      animation={`${popUp} 1.4s ease-out`}
     >
       <Flex align="center" mb={4}>
         <Icon as={FaReact} boxSize={6} color="teal.500" mr={2} />
