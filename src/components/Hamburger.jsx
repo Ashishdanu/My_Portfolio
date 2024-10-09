@@ -22,6 +22,13 @@ const Hamburger = () => {
           </Text>
         </div>
         <ul className={`nav_menu ${menuOpen ? "active" : ""}`}>
+        <li className="nav_item">
+  <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" onClick={handleLinkClick}>
+    Resume
+  </a>
+</li>
+
+
           <li className="nav_item">
             <a href="#head" onClick={handleLinkClick}>
               Home
