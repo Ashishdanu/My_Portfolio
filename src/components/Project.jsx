@@ -91,6 +91,30 @@ const Projects = () => {
           </Link>
         </Flex>
       </Box>
+
+ {/* Project 3 */}
+ <Box>
+        <Heading as="h3" size="md" mb={2}>
+        Health and Wellness Project
+        </Heading>
+        <Box border="1px solid red" margin="0 0 20px 0" width="40%" />
+        <Text fontSize="lg" mb={2} color={'blueviolet'}>
+          React | Chakra Ui | CSS3 | JavaScript  | GitHub | Responsive Web Design 
+        </Text>
+        <Text color='rgba(0, 0, 0, 0.8)'>
+          Contributed to  Health and Wellness Project development, integrated an  Meal Tracker , Generative Ai ChatBot , Authentication ,
+           and enhanced backend functionality for Overall performance and responsiveness.
+        </Text>
+        <Flex mt={2} gap={4}>
+          <Link href="https://github.com/Ayush243871/Eco_Data_Drivers_028" isExternal rel="noopener noreferrer" target='_blank'>
+            <Icon as={FaGithub} boxSize={6} />
+          </Link>
+          <Link href="https://leafy-klepon-dc5a44.netlify.app/" isExternal target='_blank' rel="noopener noreferrer">
+            <Icon as={FaExternalLinkAlt} boxSize={6} />
+          </Link>
+        </Flex>
+      </Box>
+
     </Box>
   );
 };
